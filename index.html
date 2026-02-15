@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="bg-music" autoplay loop controls>
+        <source src="Happy Birthday My Love  - Friz Love - (320 Kbps).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Confetti Container -->
     <div id="confetti-container"></div>
     
@@ -108,5 +113,13 @@
     </div>
 
     <script src="i.js"></script>
+    <script>
+        const bgMusic = document.getElementById('bg-music');
+        document.addEventListener('click', () => {
+            if (bgMusic && bgMusic.paused) {
+                bgMusic.play().catch(() => {});
+            }
+        }, { once: true });
+    </script>
 </body>
 </html>
